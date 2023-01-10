@@ -6,6 +6,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 
 export default function Soup() {
+
   const[images,setImages] = useState([]);
   const[data,setData] = useState([]);
 
@@ -20,6 +21,7 @@ export default function Soup() {
 
     .catch((error) => {console.log(error)})
   }, [])
+
   return (
     <div>
     <Carousel>
