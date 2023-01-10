@@ -1,0 +1,49 @@
+import Card from 'react-bootstrap/Card';
+import axios from 'axios';
+import {useState,useEffect} from 'react';
+import './soup.css';
+
+
+
+export default function Soup() {
+  const[images,setImages] = useState([]);
+
+
+  useEffect(() =>{
+    axios.get('https://preview.contentful.com/spaces/1144be5o46gz/environments/master/entries?access_token=lJh_BsIZlQVGVqbIkRHv0JKL0GRmezNmJa6vU8BluUU&content_type=soup&access_token=BaSDT1ePxfOqLe7UM-VtGEuPVC-PNJKaqk3qGwQFQls')
+    .then(
+      (response)=>
+      {setImages(response.data.includes.Asset)
+      console.log(response.data.inludes.Asset)}
+    )
+
+    .catch((error) => {console.log(error)})
+  }, [])
+
+  return (
+    <div>
+    {images.map((img,index) => { 
+      //console.log(img.sys.id)
+      const title = titles.find((el) => {
+        return img.sys.id === el.fields.soupname.sys.id
+      })
+  return (
+    <Card style={{ width: '30rem' }} className='ms-5 mt-5'>
+      <Card.Img variant="top" src={image?.fields.items} />
+      <Card.Body>
+        <Card.Title className='text-center'>French Onion Soup</Card.Title>
+        <Card.Text>
+              <h4>
+                this mouth-watering is ready in just 70 minutes and the ingredients detailed in the link can serve up to 4 people
+              </h4>
+              <a href='./links/frenchOnionSoup' className='cardLink'>Click Here to View the Page</a>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+    
+    
+    })
+    </div>
+    )
+  )
+}

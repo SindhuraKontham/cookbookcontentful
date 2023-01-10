@@ -22,16 +22,7 @@ useEffect(() => {
         {setTitles(response.data.items)
             setImages(response.data.includes.Asset)
             console.log(response.data.includes.Asset)}
-            
-            
             )
-            
-            
-            
-            
-            
-            
-            
             .catch((error) => {console.log(error)})
             
         }, [])
