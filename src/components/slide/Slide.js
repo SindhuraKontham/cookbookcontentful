@@ -11,13 +11,13 @@ function Slide() {
   const [images, setImages] = useState([]);
 
 
+
   useEffect(() => {
     axios
       .get(
         "https://preview.contentful.com/spaces/1144be5o46gz/environments/master/entries?access_token=lJh_BsIZlQVGVqbIkRHv0JKL0GRmezNmJa6vU8BluUU&content_type=slide&access_token=BaSDT1ePxfOqLe7UM-VtGEuPVC-PNJKaqk3qGwQFQls"
       )
-      //.get('https://cdn.contentful.com/spaces/1144be5o46gz/environments/master/entries?access_token=BaSDT1ePxfOqLe7UM-VtGEuPVC-PNJKaqk3qGwQFQls')
-      ///spaces/1144be5o46gz/environments/master/entries?access_token=lJh_BsIZlQVGVqbIkRHv0JKL0GRmezNmJa6vU8BluUU&content_type=slide
+
       .then((response) => {
         setTitles(response.data.items);
         setImages(response.data.includes.Asset);
@@ -30,6 +30,7 @@ function Slide() {
   }, []);
 
   return (
+
 
 <div>
 <Carousel>
@@ -59,6 +60,7 @@ function Slide() {
            
         </Carousel>
           </div>
+
 
   );
 }
