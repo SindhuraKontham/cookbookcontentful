@@ -1,8 +1,9 @@
-import './footer.css';
-
+import "./footer.css";
 
 export default function Footer() {
   return (
-    <h2 className='bg-dark text-white text-center' >Made by: Simran,Sindhura,Jannis and Çlirim.💘</h2>
-  )
+    <div className="footer me-auto">
+      By Simran,Sindhura,Jannis and Çlirim.
+    </div>
+  );
 }
