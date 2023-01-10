@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.cardLink {
+    width: 30rem;
+    background-color: White;
+    border: 2px solid black;
+    padding: 10px;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cardLink:hover {
+    cursor: pointer;
+    opacity: 40%;
+}
+

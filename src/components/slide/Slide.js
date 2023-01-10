@@ -10,6 +10,7 @@ function Slide() {
   const [titles, setTitles] = useState([]);
   const [images, setImages] = useState([]);
 
+
   useEffect(() => {
     axios
       .get(

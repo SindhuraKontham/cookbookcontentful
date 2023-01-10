@@ -1,23 +1,54 @@
 import Card from 'react-bootstrap/Card';
-import './soup.css'
-
+import axios from 'axios';
+import {useState,useEffect} from 'react';
+import './soup.css';
+import Carousel from 'react-bootstrap/Carousel';
 
 
 export default function Soup() {
 
+  const[images,setImages] = useState([]);
+  const[data,setData] = useState([]);
 
-  
+  useEffect(() =>{
+    axios.get('https://preview.contentful.com/spaces/1144be5o46gz/environments/master/entries?access_token=lJh_BsIZlQVGVqbIkRHv0JKL0GRmezNmJa6vU8BluUU&content_type=soup&access_token=BaSDT1ePxfOqLe7UM-VtGEuPVC-PNJKaqk3qGwQFQls')
+    .then(
+      (response)=>
+      {setImages(response.data.includes.Asset)
+        setData(response.data.items)
+      console.log(response.data.inludes.Asset)}
+    )
+
+    .catch((error) => {console.log(error)})
+  }, [])
+
   return (
-    <Card style={{ width: '18rem' }} className='ms-5 mt-5'>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
+    <div>
+    <Carousel>
         
-      </Card.Body>
-    </Card>
-  )
+    
+              {images.map((item,index) => { 
+              //console.log(img.sys.id)
+              const title = data.find((el) => {
+                return item.sys.id === el.fields.soupname.sys.id
+              })
+    
+                return <Carousel.Item>
+                   <img
+                className="d-block carousel-images"
+                src={item.fields.file.url}
+                alt="First slide"
+                />
+                <Carousel.Caption>
+                  <h3>{title?.fields.title}</h3>
+                  <p>{title?.fields.description}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+              })}
+               
+               
+            </Carousel>
+              </div>
+      );
 }
+
