@@ -6,8 +6,12 @@ import Starter from "./components/starter/Starter";
 import Main from "./components/main/Main";
 import Home from "./components/home/Home";
 import Footer from "./components/footer/Footer";
+
 import SaladPage from "./components/salad/SaladPage";
-import "bootstrap/dist/css/bootstrap.min.css";
+
+
+import './app.css'
+
 
 function App() {
   return (
