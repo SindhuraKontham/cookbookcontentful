@@ -6,7 +6,7 @@ import Starter from './components/starter/Starter';
 import Main from './components/main/Main';
 import Home from "./components/home/Home";
 import Footer from "./components/footer/Footer";
-
+import './app.css'
 
 function App() {
   return (

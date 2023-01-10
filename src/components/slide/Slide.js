@@ -45,7 +45,7 @@ useEffect(() => {
     
 
           {images.map((img,index) => { 
-          //console.log(img.sys.id)
+          console.log(img.sys.id)
           const title = titles.find((el) => {
             return img.sys.id === el.fields.dish.sys.id
           })
@@ -57,8 +57,10 @@ useEffect(() => {
             alt="First slide"
             />
             <Carousel.Caption>
+              <div className='carousel-text text-dark'>
               <h3>{title?.fields.title}</h3>
               <p>{title?.fields.description}</p>
+              </div>
             </Carousel.Caption>
           </Carousel.Item>
           })}
