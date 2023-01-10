@@ -9,6 +9,8 @@ import Footer from "./components/footer/Footer";
 import Instructions from "./components/main/Instructions";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import SaladPage from "./components/salad/SaladPage";
+import './app.css'
 
 function App() {
   const [mainCard, setMainCard] = useState([]);
@@ -39,6 +41,9 @@ function App() {
           element={<Main main={main} mainCard={mainCard} />}
         />
         <Route path="/instructions/:id/:name" element={<Instructions />} />
+        <Route path="/main" element={<Main />} />
+        <Route path="/salad/:id" element={<SaladPage />} />
+
       </Routes>
       <Footer />
     </div>
