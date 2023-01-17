@@ -10,15 +10,17 @@ import Instructions from "./components/main/Instructions";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import SaladPage from "./components/salad/SaladPage";
-import './app.css'
+import "./app.css";
 
 function App() {
   const [mainCard, setMainCard] = useState([]);
   const [main, setMain] = useState([]);
+  const [isLoading, setLoading] = useState(false);
   useEffect(() => {
     axios
       .get(
-        "https://preview.contentful.com/spaces/sikvn7be5tur/environments/master/entries?access_token=UxgjzKnC0DFARUAoog7SUFZ0-QaCqRKObuNDWJ3LYUU&content_type=recipe"      )
+        "https://preview.contentful.com/spaces/sikvn7be5tur/environments/master/entries?access_token=UxgjzKnC0DFARUAoog7SUFZ0-QaCqRKObuNDWJ3LYUU&content_type=recipe"
+      )
       .then((response) => {
         setMainCard(response.data.items);
         setMain(response.data.includes.Asset);
@@ -34,7 +36,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/soup" element={<Soup />} />
-        <Route path="/salad" element={<Salad />} />
+        <Route
+          path="/salad"
+          element={<Salad setLoading={setLoading} isLoading={isLoading} />}
+        />
         <Route path="/starter" element={<Starter />} />
         <Route
           path="/main"
@@ -42,8 +47,10 @@ function App() {
         />
         <Route path="/instructions/:id/:name" element={<Instructions />} />
         <Route path="/main" element={<Main />} />
-        <Route path="/salad/:id" element={<SaladPage />} />
-
+        <Route
+          path="/salad/:id"
+          element={<SaladPage setLoading={setLoading} isLoading={isLoading} />}
+        />
       </Routes>
       <Footer />
     </div>
