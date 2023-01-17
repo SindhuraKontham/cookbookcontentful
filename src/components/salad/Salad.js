@@ -35,7 +35,7 @@ export default function Salad({ setLoading, isLoading }) {
   }, []);
 
   return (
-    <>
+    <div className="wrapper">
       <h1 className="text-uppercase text-center mt-2">Salads</h1>
       {isLoading ? (
         // <div className="spinner-border text-center" role="status">
@@ -77,29 +77,8 @@ export default function Salad({ setLoading, isLoading }) {
               </>
             );
           })}
-          {/* {salads.map((salad) => {
-          const image = saladImages.find((saladImage) => {
-            return salad.fields.soupname.sys.id === saladImage.sys.id;
-          });
-
-          return (
-            <Card key={salad.sys.id} style={{ width: "27rem" }}>
-              <Card.Img
-                className="rounded"
-                variant="top"
-                src={image.fields.file.url}
-                height={300}
-              />
-              <Card.Body>
-                <Card.Title>{salad.fields.title}</Card.Title>
-                <Card.Text>{salad.fields.description}</Card.Text>
-                <Button variant="primary">Go to Recipe</Button>
-              </Card.Body>
-            </Card>
-          );
-        })} */}
         </div>
       )}
-    </>
+    </div>
   );
 }
