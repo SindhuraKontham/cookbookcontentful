@@ -45,8 +45,11 @@ function App() {
           path="/main"
           element={<Main main={main} mainCard={mainCard} />}
         />
-        <Route path="/instructions/:id/:name" element={<Instructions />} />
-        <Route path="/main" element={<Main />} />
+        <Route
+          path="/instructions/:assetid/:id/:name"
+          element={<Instructions />}
+        />
+        {/* <Route path="/main" element={<Main />} /> */}
         <Route
           path="/salad/:id"
           element={<SaladPage setLoading={setLoading} isLoading={isLoading} />}
